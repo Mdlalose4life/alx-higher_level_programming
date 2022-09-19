@@ -1,1 +1,2 @@
-This repository deals with higher level programing
+#this project introduces us to the basics of python.
+* 1.a Shell script that runs Python code.
