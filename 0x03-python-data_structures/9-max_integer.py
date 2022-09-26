@@ -7,5 +7,5 @@ def max_integer(my_list=[]):
         if num1 > num2:
             num1 = big_num
         elif num2 > num1:
-            num2 = big_num 
+            num2 = big_num
             return big_num
