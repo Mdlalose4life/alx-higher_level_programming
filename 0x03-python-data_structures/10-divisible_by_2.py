@@ -3,8 +3,6 @@ def divisible_by_2(my_list=[]):
     new_list =[]
     if my_list:
         for i in my_list:
-            if my_list[i] % 2:
-                True
-            else:
-                False
-            new_list.append(my_list)
+        if new_list:
+            new_list.append(False if i % 2 else True)
+            return new_list
