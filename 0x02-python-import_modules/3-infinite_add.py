@@ -3,4 +3,4 @@ if __name__ == "__main__":
     addition = 0
     for i in argv[1:]:
         addition += int(i)
-        print("{:d}",format(addition))
+        print("{:d}", format(addition))
