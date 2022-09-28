@@ -7,10 +7,10 @@ if __name__ == "__main__":
     if arguments == 0:
         print("{:d} arguments.".format(arguments))
     elif arguments == 1:
-        print("{:d} arguments.".format(arguments))
-        print("{:d}: {:s}".format(i, argv))
+        print("{:d} arguments:".format(arguments))
+        print("{:d}: {:s}".format(i, argv.argv[1]))
     else:
-        print("{:d} arguments.".format(arguments))
+        print("{:d} arguments:".format(arguments))
         while i <= arguments:
             print("{:d}: {:s}".format(i, sys.argv[i]))
             i += 1
