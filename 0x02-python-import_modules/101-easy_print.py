@@ -1,2 +1,2 @@
 #!/usr/bin/python3
-open(1, 'W').write("#pythoniscool\n")
+__import__("os").write(1, "#pythoniscool\n".enode("UTF_8))
