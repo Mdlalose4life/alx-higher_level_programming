@@ -10,11 +10,12 @@ class Square:
         __size(int): size of a side of the square
     """
     def __init__(self, size=0):
-        """
+        """initializes the square
         Args:
             size (int): size of a side of the square
 
-            Return: None
+            Return:
+            	None
         """
         if type(size) is not int:
             raise TypeError('size must be an integer')
