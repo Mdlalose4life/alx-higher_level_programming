@@ -58,5 +58,4 @@ class Rectangle:
 
     def ___repr__(self):
         """Retuns a string representation of a rectangle for production"""
-        repr = "Rectangle({:d}, {:d})".format(self.__width, self.__height)
-        return repr
+        return "Rectangle({:d}, {:d})".format(self.__width, self.__height)
