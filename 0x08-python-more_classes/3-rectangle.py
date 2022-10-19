@@ -2,11 +2,6 @@
 """
 Defines a class Rectangle
 """
-
-
-import string
-
-
 class Rectangle:
     """Represents the rectangle"""
     def __init__(self, width=0, height=0):
