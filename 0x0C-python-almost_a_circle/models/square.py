@@ -1,146 +1,72 @@
 #!/usr/bin/python3
-"""Defines a rectangle class."""
-from models.base import Base
+"""Defines the square class"""
+from models.rectangle import Rectangle
 
 
-class Rectangle(Base):
-    """Represents a rectangle."""
-
-    def __init__(self, width, height, x=0, y=0, id=None):
-        """Initialize a new Rectangle.
+class Square(Rectangle):
+    """Represent a square"""
+    def __init__(self, size, x=0, y=0, id=None):
+        """Initialize a new Square.
         Args:
-            width (int): The width of the new Rectangle.
-            height (int): The height of the new Rectangle.
-            x (int): The x coordinate of the new Rectangle.
-            y (int): The y coordinate of the new Rectangle.
-            id (int): The identity of the new Rectangle.
-        Raises:
-            TypeError: If either of width or height is not an int.
-            ValueError: If either of width or height <= 0.
-            TypeError: If either of x or y is not an int.
-            ValueError: If either of x or y < 0.
+            size (int): The size of the new Square.
+            x (int): The x coordinate of the new Square.
+            y (int): The y coordinate of the new Square.
+            id (int): The identity of the new Square.
         """
-        self.width = width
-        self.height = height
-        self.x = x
-        self.y = y
-        super().__init__(id)
+        super().__init__(size, size, id, x, y)
+
+    @property
+    def size(self):
+        """gets the size of the Square"""
+        return self.width
+
+    @size.setter
+    def size(self, input):
+        self.width = input
+        self.height = input
     
-    @property
-    def width(self):
-        return self.__width
-    
-    @width.setter
-    def width(self, input):
-        if type(input) is not int:
-            raise TypeError("width must be an integer")
-        if input <= 0:
-            raise ValueError("width must be > 0")
-        self.__width = input
-
-    @property
-    def height(self):
-        """gets the height of the Rectangle."""
-        return self.__height
-
-    @height.setter
-    def height(self, input):
-        if type(input) is not int:
-            raise TypeError("height must be an integer")
-        if input <= 0:
-            raise ValueError("height must be > 0")
-        self.__height = input
-
-    @property
-    def x(self):
-        """gets the x coodinate of the Rectangle."""
-        return self.__x
-
-    @x.setter
-    def x(self, input):
-        if type(input) is not int:
-            raise TypeError("x must be an integer")
-        if input < 0:
-            raise ValueError("x must be >= 0")
-        self.__x = input
-
-    @property
-    def y(self):
-        """gets the y coodinate of the Rectangle."""
-        return self.__y
-
-    @y.setter
-    def y(self, input):
-        if type(input) is not int:
-            raise TypeError("y must be an integer")
-        if input < 0:
-            raise ValueError("y must be >= 0")
-        self.__y = input
-
-    def area(self):
-        """Returns the area of the Rectangle."""
-        return self.width * self.height
-    
-    def display(self):
-        """Display the ractangle."""
-        if self.width == 0 or self.height == 0:
-            print("")
-            return
-
-        [print("") for y in range(self.y)]
-        for h in range(self.height):
-            [print(" ", end="") for x in range(self.x)]
-            [print("#", end="") for w in range(self.width)]
-            print("")
-        
     def update(self, *args, **kwargs):
         """
-        Update the Rectangle.
+        Update the Square.
         Args:
             *args (ints): New attribute values.
                 - 1st argument represents id attribute
-                - 2nd argument represents width attribute
-                - 3rd argument represent height attribute
-                - 4th argument represents x attribute
-                - 5th argument represents y attribute
-            **kwargs (dict): New key/value pairs of attributes
+                - 2nd argument represents size attribute
+                - 3rd argument represents x attribute
+                - 4th argument represents y attribute
+            **kwargs (dict): New key/value pairs of attributes.
         """
         if args and len(args) != 0:
             a = 0
             for arg in args:
                 if a == 0:
                     if arg is None:
-                        self.__init__(self.width, self.height, self.x, self.y)
+                        self.__init__(self.size, self.x, self.y)
                     else:
                         self.id = arg
                 elif a == 1:
-                    self.width = arg
+                    self.size = arg
                 elif a == 2:
-                    self.height = arg
-                elif a == 3:
                     self.x = arg
-                elif a == 4:
+                elif a == 3:
                     self.y = arg
                 a += 1
                 
         elif kwargs and len(kwargs) != 0:
-            for k, v in kwargs.items():
+            for k, i in kwargs.items():
                 if k == "id":
-                    if v is None:
-                        self.__init__(self.width, self.height, self.x, self.y)
+                    if i is None:
+                        self.__init__(self.size, self.x, self.y)
                     else:
-                        self.id = v
-                elif k == "width":
-                    self.width = v
-                elif k == "height":
-                    self.height = v
+                        self.id = i
+                elif k == "size":
+                    self.size = i
                 elif k == "x":
-                    self.x = v
+                    self.x = i
                 elif k == "y":
-                    self.y = v
-
-    def display(self):
-        """Returns the dictionary representation of the Rectangle"""
+                    self.y = i
+    def to_dictionary(self):
+        """Returns a dictionary representation of the Square"""
         return {
             "id": self.id,
             "width" : self.width,
@@ -148,8 +74,7 @@ class Rectangle(Base):
             "x" : self.x,
             "y" : self.y
         }
-
     def __str__(self):
-        return "[Rectangle] ({}) {}/{} - {}/{}".format(self.id, 
-                                                        self.x,self.y,
-                                                        self.width, self.height)
+        """Return the print() and str() representation of a Square."""
+        return "[Square] ({}) {}/{} - {}".format(self.id, self.x, self.y,
+                                                 self.width)

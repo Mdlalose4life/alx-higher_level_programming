@@ -8,6 +8,7 @@ class Rectangle(Base):
 
     def __init__(self, width, height, x=0, y=0, id=None):
         """Initialize a new Rectangle.
+
         Args:
             width (int): The width of the new Rectangle.
             height (int): The height of the new Rectangle.
@@ -28,6 +29,7 @@ class Rectangle(Base):
     
     @property
     def width(self):
+        """get the width of the Rectangle."""
         return self.__width
     
     @width.setter
@@ -94,8 +96,9 @@ class Rectangle(Base):
             print("")
         
     def update(self, *args, **kwargs):
-        """
-        Update the Rectangle.
+        """Update the Rectangle.
+
+
         Args:
             *args (ints): New attribute values.
                 - 1st argument represents id attribute
@@ -139,7 +142,7 @@ class Rectangle(Base):
                 elif k == "y":
                     self.y = v
 
-    def display(self):
+    def to_dictionary(self):
         """Returns the dictionary representation of the Rectangle"""
         return {
             "id": self.id,
@@ -150,6 +153,7 @@ class Rectangle(Base):
         }
 
     def __str__(self):
+        """Return the print() and str() representation of the Rectangle"""
         return "[Rectangle] ({}) {}/{} - {}/{}".format(self.id, 
                                                         self.x,self.y,
                                                         self.width, self.height)
