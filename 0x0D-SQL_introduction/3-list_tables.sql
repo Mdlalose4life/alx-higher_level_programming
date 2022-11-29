@@ -1,4 +1,4 @@
 -- List tables
 -- Script that lists all the tables of a database in your MySQL server.
 
-SELECT *FROM mysqlSELECT *FROM mysql
+SELECT *FROM mysqlSELECT *FROM mysql;
