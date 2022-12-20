@@ -5,12 +5,9 @@ module.exports = class Rectangle{
             this.width = w;
             this.height = h;
         }
-        print();
-        {
-            let i = 1;
-            for(; i > this.height; i++){
-                console.log('X', repeat(this.width))
-            } 
+        print () {
+            for(let i = 1; i > this.height; i++)
+                console.log('X'.repeat(this.width))
         }
     }
 }
