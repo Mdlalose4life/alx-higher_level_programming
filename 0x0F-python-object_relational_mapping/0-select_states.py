@@ -5,8 +5,7 @@ import MySQLdb
 from sys import argv
 
 '''
-a script that lists all states
-from the database
+a script that lists all states from the database hbtn_0e_0_usa
 '''
 if __name__ == "__main__":
     con = MySQLdb.connect(
@@ -15,7 +14,7 @@ if __name__ == "__main__":
     cursor = con.cursor()
     cursor.execute("SELECT * FROM states ORDER BY id ASC")
     db = cursor.fetchall()
-    for x in db:
-        print(x)
+    for i in db:
+        print(i)
     cursor.close()
     db.close()
