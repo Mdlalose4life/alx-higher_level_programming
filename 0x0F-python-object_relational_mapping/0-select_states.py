@@ -10,7 +10,7 @@ if __name__=="__main__":
         host="localhost",port=3306, user=argv[1], 
         passwd=argv[2], database=argv[3])
     cursor = mydb.cursor()
-    cursor.execute("SELECT *FROM states ORDER BY ASC")
+    cursor.execute("SELECT *FROM states ORDER BY id ASC")
     mydb = cursor.fetchall()
     for x in mydb:
         print(x)
