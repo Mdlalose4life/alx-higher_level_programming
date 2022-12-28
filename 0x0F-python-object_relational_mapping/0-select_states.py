@@ -13,7 +13,7 @@ if __name__ == "__main__":
     cur = con.cursor()
     cur.execute("SELECT * FROM states ORDER BY id ASC")
     my_db = cur.fetchall()
-    for i in db:
-        print(i)
+    for row in db:
+        print(row)
     cursor.close()
     db.close()
