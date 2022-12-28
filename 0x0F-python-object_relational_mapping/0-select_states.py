@@ -13,6 +13,7 @@ if __name__ == '__main__':
     from the database.
     """
     
+    if __name__ == "__main__":
     con = MySQLdb.connect(
         host="localhost", user=argv[1], port=3306, passwd=argv[2], db=argv[3])
     my_db = con.cursor()
