@@ -13,10 +13,14 @@ if __name__ == '__main__':
     from the database.
     """
     
-    if __name__ == "__main__":
+if __name__ == "__main__":
+
     con = MySQLdb.connect(
-        host="localhost", user=argv[1], port=3306, passwd=argv[2], db=argv[3])
-    my_db = con.cursor()
-    my_db.execute("SELECT * FROM states")
-    for row in my_db.fetchall():
+        host="localhost",port=3306, user=sys.argv[1], passwd=sys.argv[2],
+        db=sys.argv[3], charset="utf8")
+    cu = con.cursor()
+    cu.execute("SELECT * FROM states")
+    for row in cu.fetchall():
         print(row)
+    cu.close()
+    db.close()
