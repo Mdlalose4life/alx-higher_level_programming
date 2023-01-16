@@ -1,9 +1,9 @@
 #!/usr/bin/python3
-"""Finds a peak in an unsorted list of intergers"
+"""Finds a peak in an unsorted list of intergers"""
 
 
 def find_peak(list_of_intergers):
-    """Returns a peak in a list"
+    """Returns a peak in a list"""
     if list_of_intergers == []:
     	return None
     
@@ -17,7 +17,7 @@ def find_peak(list_of_intergers):
     peak = list_of_intergers[middle]
     if peak > list_of_intergers[middle - 1] and peak > list_of_intergers[middle + 1]:
     	return peak
-    elif peak < list_of_intergers[middle -1]
+    elif peak < list_of_intergers[middle -1]:
     	return find_peak(list_of_intergers[:middle])
     else:
     	return find_peak(list_of_intergers[middle + 1:])
