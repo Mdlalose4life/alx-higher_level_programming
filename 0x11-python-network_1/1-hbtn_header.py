@@ -6,7 +6,7 @@ Python script that
 3. displays the value of the X-Request-Id variable found
 in the header of the response.
 """
-import urllib.request
+from urllib import request
 from sys
 
 if __name__ == "__main__":
