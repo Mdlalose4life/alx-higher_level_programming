@@ -3,7 +3,7 @@
 script that
 1. takes in a URL and an email
 2. sends a POST request to the passed URL with the email as a parameter.
-3. and displays the body of the response (decoded in utf-8)
+3. and displays the body of the response (decoded in utf-8).
 """
 
 from urllib import request, parse, response
