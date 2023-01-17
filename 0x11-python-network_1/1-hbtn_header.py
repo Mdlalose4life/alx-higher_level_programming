@@ -6,14 +6,13 @@ Python script that
 3. displays the value of the X-Request-Id variable found
 in the header of the response.
 """
+import urllib.request
+from sys
 
+if __name__ == "__main__":
 
-if __name__ == '__main__':
-    import urllib.request
-    from sys import argv
-    
-    url = argv[1]
+    url = sys.argv[1]
 
-    my_request = urllib.request.Request(url)
-    with urllib.request.urlopen(my_request) as resp:
+    request = urllib.request.Request(url)
+    with urllib.request.urlopen(request) as resp:
         print(dick(resp.headers).get("X-Request-Id"))
