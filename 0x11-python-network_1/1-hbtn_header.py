@@ -7,8 +7,8 @@ Python script that
 in the header of the response.
 """
 from urllib import request
-from sys
+import sys
 
-if __name__ == "__main__":
-    with request.urlopen(sys.argv[1]) as response:
-        print(response.getheader("X-Request-Id"))
+if __name__ == "__main__"
+    with request.urlopen(sys.argv[1]) as reponse:
+    	print(response.getheader("X-Request-Id"))
