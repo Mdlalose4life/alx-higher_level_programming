@@ -10,9 +10,9 @@ import requests
 import sys
 
 if __name__ == "__main__":
-    res = requests.post(sys.argv[0])
-    status = requests.status_code
+    response = requests.post(sys.argv[0])
+    status = requests.status_codes
     if status > 400:
-        print("Error code:")
+        print("Error code: ")
     else:
-        print(res.text)
+        print(response.text)
