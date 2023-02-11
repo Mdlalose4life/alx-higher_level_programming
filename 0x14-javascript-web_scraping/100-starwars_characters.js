@@ -12,7 +12,7 @@ request(url, (error, response, body) => {
   }
 
   const data = JSON.parse(body);
-  const character = data.characters;
+  const characters = data.characters;
     for (const character of characters) {
       request(character, (error, response, body) => {
         if (error){
@@ -20,7 +20,7 @@ request(url, (error, response, body) => {
           return;
         }
         const characterData = JSON.parse(body);
-        console.log(characterData.name)
+        console.log(characterData.name);
     });
   }
 });

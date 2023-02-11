@@ -11,13 +11,12 @@ request(url, (error, response, body) =>{
   } else {
     const data = JSON.parse(body);
     data.results.forEach((film) => {
-      film.character.forEach((characterID) => {
+      film.characters.forEach((character) => {
         if(character.includes(characterID)){
         count += 1
-
-                }
-            });
-        });
-        console.log(count);
-    }
+        }
+      });
+    });
+    console.log(count);
+  }
 });
