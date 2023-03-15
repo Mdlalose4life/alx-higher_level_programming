@@ -1,6 +1,6 @@
 #!/usr/bin/node
 
-const Rectangle = require("./5-rectangle.js");
+const Rectangle = require("./4-rectangle.js");
 
 /*A Class Square that inherits from Class Rectangle*/
 
