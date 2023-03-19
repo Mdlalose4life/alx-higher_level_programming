@@ -13,14 +13,14 @@ if __name__ == '__main__':
     from the database.
     """
 
-    conn = MySQLdb.connect(host="localhost", port=3306,
-                            user=argv[1], passwd=argv[2], db=argv[3])
+    mydb = MySQLdb.connect(host="localhost", port=3306,
+                           passwd=argv[2], db=argv[3])
 
-    with con.cursor() as cur:
+    with mydb.cursor() as cur:
         cur.execute("SELECT cities.id, cities.name, states.name \
                                 FROM cities JOIN states ON cities.state_id \
                                 = states.id ORDER BY cities.id ASC")
 
-    if cursor.fetchall()is not None:
-        for row in cursor.fetchall():
+    if cur.fetchall() is not None:
+        for row in cur.fetchall():
             print(row)
