@@ -14,9 +14,9 @@ if __name__ == '__main__':
     Access to the database and get the states
     from the database.
     """
-    mydb = MySQLdb.connect(host="localhost",
-                           port=3306, passwd=argv[2], db=argv[3])
-    
+    mydb = MySQLdb.connect(host="localhost", port=3306,
+                           passwd=argv[2], db=argv[3])
+
     cur = mydb.cursor()
     cur.execute(
         "SELECT * FROM states WHERE name LIKE \
@@ -24,4 +24,3 @@ if __name__ == '__main__':
 
     for row in cur.fetchall():
         print(row)
-        
