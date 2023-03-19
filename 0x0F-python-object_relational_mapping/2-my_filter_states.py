@@ -23,5 +23,5 @@ if __name__ == '__main__':
                         states.id ASC".format(argv[4]))
 
 
-    for x in cursor.fetchall():
+    for x in cur.fetchall():
         print(x)
