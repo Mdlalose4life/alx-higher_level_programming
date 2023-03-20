@@ -1,7 +1,8 @@
 #!/usr/bin/python3
 """
-Script that lists all `cities` in the `cities` table of `Alx-Holberton schools`
-where the city's state matches the argument `state name`.
+Script that lists all `cities` in the `cities` table of
+`Alx-Holberton schools` where the city's state
+matches the argument `state name`.
 Arguments:
     mysql username (str)
     mysql password (str)
@@ -29,5 +30,6 @@ if __name__ == "__main__":
                  ORDER BY c.id", (state_name, ))
 
     for i in range(len(cur.fetchall())):
-        print(cur.fetchall()[i][0], end=", " if i + 1 < len(cur.fetchall()) else "")
+        print(cur.fetchall()[i][0],
+              end=", " if i + 1 < len(cur.fetchall()) else "")
     print("")
