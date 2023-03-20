@@ -14,10 +14,10 @@ if __name__ == "__main__":
     Updates a State object on the database.
     """
 
-    db_url = "mysql+mysqldb://{}:{}@localhost:3306/{}".format(
+    engine = "mysql+mysqldb://{}:{}@localhost:3306/{}".format(
         argv[1], argv[2], argv[3])
 
-    engine = create_engine(db_url)
+    engine = create_engine(engine)
     Session = sessionmaker(bind=engine)
 
     session = Session()
@@ -25,5 +25,4 @@ if __name__ == "__main__":
     state = session.query(State).filter(State.id == 2).first()
     state.name = "New Mexico"
     session.commit()
-
     session.close()
