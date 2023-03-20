@@ -24,8 +24,8 @@ if __name__ == "__main__":
 
     engine = create_engine(URL(**url), pool_pre_ping=True)
     Base.metadata.create_all(engine)
-    session = sessionmaker(bind=engine)
-    Session = session()
+    Session = sessionmaker(bind=engine)
+    session = Session()
 
     cl_instance = session.query(State).first()
 
