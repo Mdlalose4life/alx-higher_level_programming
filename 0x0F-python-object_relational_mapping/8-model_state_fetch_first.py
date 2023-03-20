@@ -9,7 +9,7 @@ Arguments:
 
 import sys
 from sqlalchemy import (create_engine)
-from sqlalchemy.orm import Session
+from sqlalchemy.orm import sessionmaker
 from sqlalchemy.engine.url import URL
 from model_state import Base, State
 
@@ -24,12 +24,13 @@ if __name__ == "__main__":
 
     engine = create_engine(URL(**url), pool_pre_ping=True)
     Base.metadata.create_all(engine)
+    session = sessionmaker(bind=engine)
+    Session = session()
 
-    session = Session(bind=engine)
-
-    cl_instance = session.query(State).order_by(State.id).first()
+    cl_instance = session.query(State).first()
 
     if cl_instance:
         print("{}: {}".format(cl_instance.id, cl_instance.name))
     else:
         print("Nothing")
+    session.close()
