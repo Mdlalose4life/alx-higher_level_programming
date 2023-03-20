@@ -10,7 +10,7 @@ Arguments:
 
 import sys
 from sqlalchemy import (create_engine)
-from sqlalchemy.orm import Session
+from sqlalchemy.orm import sessionmaker
 from sqlalchemy.engine.url import URL
 from model_state import Base, State
 
@@ -25,10 +25,11 @@ if __name__ == "__main__":
 
     engine = create_engine(URL(**url), pool_pre_ping=True)
     Base.metadata.create_all(engine)
+    Session = sessionmaker(bind=engine)
+    session = Session()
 
-    session = Session(bind=engine)
-
-    x = session.query(State).order_by(State.id)
+    x = session.query(State).order_by(State.id).all()
 
     for instance in x:
         print("{}: {}".format(instance.id, instance.name))
+    session.close()
